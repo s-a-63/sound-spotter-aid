@@ -17,7 +17,7 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
         {/* Hero Section */}
         <section className="text-center mb-16" aria-labelledby="hero-heading">
           <div className="max-w-4xl mx-auto">
-            <h1 id="hero-heading" className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
+            <h1 id="hero-heading" className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text ">
               AI-Powered Assistive Mobility Tool
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
