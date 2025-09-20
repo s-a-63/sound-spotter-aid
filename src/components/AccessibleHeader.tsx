@@ -34,7 +34,7 @@ const AccessibleHeader = ({ isLoggedIn, onLogin, onNavigateToDetection }: Access
                 onClick={onLogin}
                 aria-label="Log in to access detection tool"
               >
-                Log In <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                Log In / Sign Up <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Button>
             )}
           </div>

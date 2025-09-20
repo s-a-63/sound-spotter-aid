@@ -12,13 +12,27 @@ interface LoginPageProps {
 
 const LoginPage = ({ onLogin, onBack }: LoginPageProps) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple validation for demo
-    if (email && password) {
+
+    if (!email || !password) return;
+
+    if (isSignup) {
+      // Simple password confirmation check
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+      // Handle signup logic here
+      alert("Account created successfully!");
+      setIsSignup(false); // switch back to login
+    } else {
+      // Handle login logic here
       onLogin();
     }
   };
@@ -38,9 +52,13 @@ const LoginPage = ({ onLogin, onBack }: LoginPageProps) => {
 
         <Card className="shadow-accessible">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
+            <CardTitle className="text-2xl font-bold">
+              {isSignup ? "Sign up for free" : "Welcome Back"}
+            </CardTitle>
             <CardDescription className="text-base">
-              Sign in to access your AI assistive mobility tool
+              {isSignup
+                ? "Create your account to start using the AI assistive mobility tool"
+                : "Sign in to access your AI assistive mobility tool"}
             </CardDescription>
           </CardHeader>
           
@@ -60,9 +78,6 @@ const LoginPage = ({ onLogin, onBack }: LoginPageProps) => {
                   required
                   aria-describedby="email-help"
                 />
-                <p id="email-help" className="text-sm text-muted-foreground">
-                  We'll never share your email with anyone else.
-                </p>
               </div>
 
               <div className="space-y-2">
@@ -78,7 +93,6 @@ const LoginPage = ({ onLogin, onBack }: LoginPageProps) => {
                     placeholder="Enter your password"
                     className="h-12 text-base pr-12"
                     required
-                    aria-describedby="password-help"
                   />
                   <Button
                     type="button"
@@ -95,26 +109,45 @@ const LoginPage = ({ onLogin, onBack }: LoginPageProps) => {
                     )}
                   </Button>
                 </div>
-                <p id="password-help" className="text-sm text-muted-foreground">
-                  Your password is encrypted and secure.
-                </p>
               </div>
+
+              {isSignup && (
+                <div className="space-y-2">
+                  <Label htmlFor="confirmPassword" className="text-base font-semibold">
+                    Confirm Password
+                  </Label>
+                  <Input
+                    id="confirmPassword"
+                    type={showPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Re-enter your password"
+                    className="h-12 text-base"
+                    required
+                  />
+                </div>
+              )}
 
               <Button 
                 type="submit" 
                 variant="accessible" 
                 size="lg" 
                 className="w-full"
-                aria-label="Sign in to your account"
+                aria-label={isSignup ? "Sign up for a new account" : "Sign in to your account"}
               >
-                Sign In
+                {isSignup ? "Sign Up" : "Sign In"}
               </Button>
 
               <div className="text-center">
                 <p className="text-muted-foreground">
-                  Don't have an account?{" "}
-                  <Button variant="link" className="p-0 h-auto text-base font-semibold">
-                    Sign up for free
+                  {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
+                  <Button 
+                    variant="link" 
+                    className="p-0 h-auto text-base font-semibold"
+                    onClick={() => setIsSignup(!isSignup)}
+                    type="button"
+                  >
+                    {isSignup ? "Sign in" : "Sign up for free"}
                   </Button>
                 </p>
               </div>

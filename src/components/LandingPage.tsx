@@ -9,9 +9,7 @@ interface LandingPageProps {
 const LandingPage = ({ onGetStarted }: LandingPageProps) => {
   return (
     <main className="min-h-screen bg-gradient-subtle">
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
+      
       
       <div id="main-content" className="container mx-auto px-4 py-12">
         {/* Hero Section */}
@@ -31,7 +29,7 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               aria-label="Get started with AI assistive mobility tool"
               className="mb-8"
             >
-              Get Started <Eye className="ml-3 h-6 w-6" aria-hidden="true" />
+              Get Started 
             </Button>
             <p className="text-muted-foreground">
               Free to use • No installation required • Works on any device
@@ -46,9 +44,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <Volume2 className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <Volume2 className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Real-Time Audio Alerts</CardTitle>
               </CardHeader>
               <CardContent>
@@ -59,9 +57,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <Car className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <Car className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Vehicle Detection</CardTitle>
               </CardHeader>
               <CardContent>
@@ -72,9 +70,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <TrafficCone className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <TrafficCone className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Traffic Infrastructure</CardTitle>
               </CardHeader>
               <CardContent>
@@ -85,9 +83,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <Camera className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <Camera className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Live Camera Feed</CardTitle>
               </CardHeader>
               <CardContent>
@@ -98,9 +96,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <Upload className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <Upload className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Image Analysis</CardTitle>
               </CardHeader>
               <CardContent>
@@ -111,9 +109,9 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-card hover:shadow-accessible transition-shadow">
+            <Card className="group shadow-card border border-border rounded-xl transition-all transform hover:scale-105 hover:border-primary hover:shadow-lg">
               <CardHeader>
-                <Video className="h-12 w-12 text-secondary mb-4" aria-hidden="true" />
+                <Video className="h-12 w-12 text-secondary mb-4 group-hover:text-primary transition-colors" aria-hidden="true" />
                 <CardTitle className="text-xl">Video Processing</CardTitle>
               </CardHeader>
               <CardContent>
@@ -191,6 +189,53 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
             Start Now - It's Free
           </Button>
         </section>
+                {/* Footer */}
+        <footer className="mt-16 border-t border-border bg-muted/30">
+          <div className="container mx-auto px-4 py-8 grid md:grid-cols-3 gap-8 text-muted-foreground text-sm">
+            
+            {/* Brand / Mission */}
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">AI Assistive Mobility</h3>
+              <p>
+                Empowering visually impaired individuals with AI-powered navigation 
+                and real-time audio assistance for safer mobility.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><a href="#hero-heading" className="hover:underline">Home</a></li>
+                <li><a href="#features-heading" className="hover:underline">Features</a></li>
+                <li><a href="#how-it-works-heading" className="hover:underline">How It Works</a></li>
+                <li>
+                  <button 
+                    onClick={onGetStarted} 
+                    className="hover:underline"
+                    aria-label="Get started with Sound Spotter Aid"
+                  >
+                    Get Started
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Accessibility / Legal */}
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Accessibility</h3>
+              <p>
+                We are committed to inclusivity. If you experience any issues, please 
+                contact us for assistance.
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-border mt-8 pt-4 text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} AI Assistive Mobility. All rights reserved.
+          </div>
+        </footer>
+
       </div>
     </main>
   );
